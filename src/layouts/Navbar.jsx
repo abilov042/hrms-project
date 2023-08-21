@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes, useParams } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { Button, Menu } from "semantic-ui-react";
 import Login from "./Login";
 import Register from "./Register";
@@ -19,16 +19,14 @@ export default function Navbar() {
             <Button>Log-in</Button>
           </Link>
         </Menu.Item>
+
+        <Menu.Item>
+          <Link to={"/"}>Home</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to={"/candidateCVs"}>Candidate CV</Link>
+        </Menu.Item>
       </Menu>
-      
-      <Routes>
-        <Route path="/" >
-          <Route path="/login" index element={<Login/>} />
-          <Route path="/register" index element={<Register/>} />
-        </Route>
-      </Routes>
-    
-      
     </div>
   );
 }

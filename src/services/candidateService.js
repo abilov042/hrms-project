@@ -5,4 +5,9 @@ export class CandidateService{
 
         return axios.get("http://localhost:8080/api/candidates/getAll")
     }
+
+    postCandidate(candidate){
+
+        return axios.post("http://localhost:8080/api/candidates/add",candidate)
+    }
 }
