@@ -3,21 +3,31 @@ import Navbar from "./Navbar";
 import CandidateCVs from "../pages/CandidateCVs";
 import CandidateCVDetalis from "../pages/CandidateCVDetalis";
 import { Route, Routes } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import { Container } from "semantic-ui-react";
+import Home from "../pages/Home";
+
+
 
 export default function Dashboard() {
   return (
-    <div className="Dashboard">
+    <div>
+      
       <Navbar />
-      <Routes>
-        <Route path="/">
-          <Route path="login" Component={Login} />
-          <Route path="register" Component={Register} />
-          <Route path="candidateCVs" Component={CandidateCVs}/>
-          <Route path="candidateCVs/:id" Component={CandidateCVDetalis}/>
-        </Route>
-      </Routes>
+      <Container>
+        <Routes>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/candidateCVs" element={<CandidateCVs/>}/>
+            <Route path="/candidateCVs/:id" element={<CandidateCVDetalis/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
+        </Routes>
+      </Container>
+      {/* <Footer/> */}
+      
+      
+     
     </div>
   );
 }

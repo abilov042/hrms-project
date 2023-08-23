@@ -7,17 +7,22 @@ import { Link } from 'react-router-dom';
 export default function CandidateCVs() {
     const [candidateCvs, setCandidateCVs] = useState([])
     const [candidatePhotos, setCandidatePhotos] = useState([])
+    const imageStyle = {
+      width: "50px",
+      height: "50px",
+      borderRadius: "50%",
+      objectFit: "cover",
+      }
 
     useEffect(()=>{
         let candidateCvService = new CandidateCVService();
         candidateCvService.getcandidateCV().then((res)=>setCandidateCVs(res.data.data));
-    },[])
-
-    useEffect(()=>{
+        
         let candidatePhotoService = new CandidatePhotoService();
         candidatePhotoService.getAllPhoto().then((res)=>setCandidatePhotos(res.data.data))
     },[])
 
+    
   return (
     <div style={{display:"flex", justifyContent:"center", marginTop:"30px"}}>
       <Table basic='very' celled collapsing >
@@ -36,15 +41,17 @@ export default function CandidateCVs() {
                 <Table.Body key={tempCandidateCV.id}>
                 <Table.Row>
                   <Table.Cell>
+                  <Link to={`/candidateCVs/${tempCandidateCV.id}`}>
                     <Header as='h4' image>
-                      <Image src={photo} rounded size='large'/>
+                      <Image src={photo} rounded style={imageStyle}/>
                       <Header.Content>
-                        <Link to={`/candidateCVs/${tempCandidateCV.id}`}>
+                        
                         {tempCandidateCV.candidate?.firstName} {tempCandidateCV.candidate?.lastName}
-                        </Link>
+                        
                         <Header.Subheader>{tempCandidateCV.jobPosition?.positionName}</Header.Subheader>
                       </Header.Content>
                     </Header>
+                    </Link>
                   </Table.Cell>
                   <Table.Cell>{tempCandidateCV.programLanguage?.programLanguageName}</Table.Cell>
                 </Table.Row>

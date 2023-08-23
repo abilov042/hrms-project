@@ -1,13 +1,14 @@
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import { Button, Menu } from "semantic-ui-react";
-import Login from "./Login";
-import Register from "./Register";
+import { Link } from "react-router-dom";
+import { Button, Container, Menu } from "semantic-ui-react";
 
 export default function Navbar() {
   return (
+    
     <div className="Navbar">
+      
       <Menu>
+      <Container>
         <Menu.Item>
           <Link to={"/register"}>
             <Button primary>Sign up</Button>
@@ -21,12 +22,14 @@ export default function Navbar() {
         </Menu.Item>
 
         <Menu.Item>
-          <Link to={"/"}>Home</Link>
+          <Link to={"/home"}>Home</Link>
         </Menu.Item>
         <Menu.Item>
           <Link to={"/candidateCVs"}>Candidate CV</Link>
         </Menu.Item>
+        </Container>
       </Menu>
+      
     </div>
   );
 }
