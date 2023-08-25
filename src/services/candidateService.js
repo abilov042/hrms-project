@@ -8,6 +8,6 @@ export class CandidateService{
 
     postCandidate(candidate){
 
-        return axios.post("http://localhost:8080/api/candidates/add",candidate)
+        return axios.post("http://localhost:8080/api/candidates/save",candidate)
     }
 }
