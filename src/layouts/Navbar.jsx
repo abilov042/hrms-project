@@ -27,6 +27,9 @@ export default function Navbar() {
         <Menu.Item>
           <Link to={"/candidateCVs"}>Candidate CV</Link>
         </Menu.Item>
+        <Menu.Item>
+          <Link to={"/adCv"}>Ad Cv</Link>
+        </Menu.Item>
         </Container>
       </Menu>
       

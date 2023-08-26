@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import { Container } from "semantic-ui-react";
 import Home from "../pages/Home";
+import AddCv from "../pages/AddCv";
 
 
 
@@ -22,9 +23,10 @@ export default function Dashboard() {
             <Route path="/candidateCVs/:id" element={<CandidateCVDetalis/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/adCv" element={<AddCv/>}/>
         </Routes>
       </Container>
-      {/* <Footer/> */}
+      
       
       
      
